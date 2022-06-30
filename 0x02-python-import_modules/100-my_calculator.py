@@ -3,11 +3,12 @@ if __name__ == "__main__":
     from calculator_1 import add, sub, mul, div
     import sys
 
-    dig_arg = len(sys.argv)
-    if dig_arg != 4:
+    span = len(argv)
+    if span != 4:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         exit(1)
 
+    if span == 4:
     a = int(argv[1])
     op = argv[2]
     b = int(argv[3])
