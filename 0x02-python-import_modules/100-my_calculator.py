@@ -3,23 +3,21 @@ if __name__ == "__main__":
     from calculator_1 import add, sub, mul, div
     import sys
 
-    span = len(argv)
-    if span != 4:
+    argv = sys.argv
+    if len(argv) != 4:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
-        exit(1)
-
-    if span == 4:
-    a = int(argv[1])
-    op = argv[2]
-    b = int(argv[3])
-    if op == "+":
-        print("{:d} + {:d} =  {:d}".format(a, b, add(a, b)))
-    elif op == "-":
-        print("{:d} - {:d} =  {:d}".format(a, b, sub(a, b)))
-    elif op == "*":
-        print("{:d} * {:d} =  {:d}".format(a, b, mul(a, b)))
-    elif op == "/":
-        print("{:d} / {:d} =  {:d}".format(a, b, div(a, b)))
+        sys.exit(1)
+    elif argv[2] == '+':
+        op = add
+    elif argv[2] == '-':
+        op = sub
+    elif argv[2] == '*':
+        op = mul
+    elif argv[2] == '/':
+        op = div
     else:
         print("Unknown operator. Available operators: +, -, * and /")
-        exit(1)
+        sys.exit(1)
+
+    answer = op(int(argv[1]), int(argv[3]))
+    print("{} {} {} = {}".format(int(argv[1]), argv[2], int(argv[3]), answer))
