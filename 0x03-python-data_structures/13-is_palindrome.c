@@ -1,12 +1,10 @@
 #include "lists.h"
 
 /**
- * is_palindrome -  checks if a singly linked list is a palindrome. 
+ * is_palindrome - checks if a singly linked list is a palindrome.
  * @head: pointer to linked list head
- * 
  * Return: 0 if it is not a palindrome, 1 if it is a palindrome
  */
-
 int is_palindrome(listint_t **head)
 {
 		int *good;
@@ -19,11 +17,9 @@ int is_palindrome(listint_t **head)
 		n = n_listint(*head);
 		good = malloc(n * sizeof(int));
 		nodes = malloc(n * sizeof(listint_t));
-
 		trend = *head;
 		if (trend == NULL)
-				return (1);
-
+			return (1);
 		x = 0;
 		while (trend != NULL)
 		{
@@ -33,7 +29,6 @@ int is_palindrome(listint_t **head)
 				trend = trend->next;
 				x++;
 		}
-
 		x--;
 		n = 1;
 		y = 0;
@@ -49,10 +44,8 @@ int is_palindrome(listint_t **head)
 				x--;
 				y++;
 		}
-
 		free(good);
 		free(nodes);
-
 		return (1);
 }
 
@@ -61,7 +54,6 @@ int is_palindrome(listint_t **head)
  * @h: pointer to head of list
  * Return: number of nodes
  */
-
 size_t n_listint(const listint_t *h)
 {
 		const listint_t *trend;
@@ -69,6 +61,7 @@ size_t n_listint(const listint_t *h)
 
 		trend = h;
 		n = 0;
+
 		while (trend != NULL)
 		{
 				trend = trend->next;
