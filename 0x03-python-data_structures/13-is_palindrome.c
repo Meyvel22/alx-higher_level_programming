@@ -23,26 +23,26 @@ int is_palindrome(listint_t **head)
 		x = 0;
 		while (trend != NULL)
 		{
-				gain = trend->n;
-				good[x] = gain;
-				nodes[x] = *trend;
-				trend = trend->next;
-				x++;
+			gain = trend->n;
+			good[x] = gain;
+			nodes[x] = *trend;
+			trend = trend->next;
+			x++;
 		}
 		x--;
 		n = 1;
 		y = 0;
 		while (x >= n)
 		{
-				trend = &nodes[x];
-				if (trend->n != good[y])
-				{
-					free(good);
-					free(nodes);
-					return (0);
-				}
-				x--;
-				y++;
+			trend = &nodes[x];
+			if (trend->n != good[y])
+			{
+				free(good);
+				free(nodes);
+				return (0);
+			}
+			x--;
+			y++;
 		}
 		free(good);
 		free(nodes);
@@ -61,11 +61,10 @@ size_t n_listint(const listint_t *h)
 
 		trend = h;
 		n = 0;
-
 		while (trend != NULL)
 		{
-				trend = trend->next;
-				n++;
+			trend = trend->next;
+			n++;
 		}
 
 		return (n);
