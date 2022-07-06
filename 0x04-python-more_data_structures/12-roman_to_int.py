@@ -1,19 +1,26 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-    # roman_to_int - function that converts a Roman numeral to an integer
+    # roman_to_int - converts a Roman numeral to an integer
 
-    if type(roman_string) is not str or roman_string is None:
-        return (0)
-    full = 0
-    rom_num = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
-    for idx in range(len(roman_string)):
-        x = rom_num.get(roman_string[idx])
-        if (idx < len(roman_string[idx]) - 1):
-            xx = rom_num.get(roman_string[idx + 1])
-            if xx > x:
-                full -= x
-            else:
-                full += x
-        else:
-            full += x
-    return (full)
+    ROMAN = {"I": 1, "IV": 4, "V": 5, "IX": 9, "X": 10,
+             "XL": 40, "L": 50, "XC": 90, "C": 100, "CD": 400,
+             "D": 500, "CM": 900, "M": 1000}
+
+    answer = 0
+    if not isinstance(roman_string, str):
+        return (answer)
+
+    r_numeral = ROMAN.keys()
+    n = len(roman_string)
+    x = 0
+    while x < n:
+        check1 = roman_string[x:x+2]
+        check2 = roman_string[x]
+        if check1 in r_numeral:
+            answer += ROMAN.get(check1)
+            x += 2
+        elif check2 in r_numeral:
+            answer += ROMAN.get(check2)
+            x += 1
+
+    return(answer)
