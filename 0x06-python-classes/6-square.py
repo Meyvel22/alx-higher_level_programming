@@ -82,9 +82,12 @@ class Square():
             print("")
             return
 
-        [print("") for x in range(0, self.__position[1])]
-        for x in range(0, self.__size):
-            [print(" ", end="") for y in range(0, self.__position[0])]
-            [print("#", end="") for z in range(0, self.__size)]
+        "Not empty (size != 0)"
+        for new_line in range(self.__position[1]):
             print("")
-            
+        for row in range(self.__size):
+            for space in range(self.__position[0]):
+                print(" ", end="")
+            for column in range(self.__size):
+                print("#", end="")
+            print("")
