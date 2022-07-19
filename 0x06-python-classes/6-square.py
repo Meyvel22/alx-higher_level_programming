@@ -80,6 +80,7 @@ class Square():
         """
         if self.__size == 0:
             print()
+            return
         else:
             for x in range(self.position[1]):
                 print()
