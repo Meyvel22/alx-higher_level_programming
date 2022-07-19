@@ -50,6 +50,7 @@ class Square():
              area of the square.
         """
         return self.__size * self.__size
+
     def __eq__(self, other):
         """Method to compare using == operator"""
         return self.area() == other.area()
