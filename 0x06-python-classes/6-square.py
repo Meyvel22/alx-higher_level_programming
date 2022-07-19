@@ -79,14 +79,12 @@ class Square():
             prints the square with character #
         """
         if self.__size == 0:
-            print()
+            print("")
             return
-        else:
-            for x in range(self.position[1]):
-                print()
-            for x in range(0, self.size):
-                for y in range(self.position[0]):
-                    print(" ", end='')
-                for z in range(self.size):
-                    print("#", end='')
-                print()
+
+        [print("") for x in range(0, self.__position[1])]
+        for x in range(0, self.__size):
+            [print(" ", end="") for y in range(0, self.__position[0])]
+            [print("#", end="") for z in range(0, self.__size)]
+            print("")
+            
