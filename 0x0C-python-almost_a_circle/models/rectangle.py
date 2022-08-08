@@ -107,8 +107,8 @@ class Rectangle(Base):
     def __str__(self):
         """returns the print() and str() representation of the Rectangle"""
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
-                                                      self.x, self.y,
-                                                      self.width, self.height)
+                                                       self.x, self.y,
+                                                       self.width, self.height)
 
     def update(self, *args, **kwargs):
         """
@@ -118,13 +118,19 @@ class Rectangle(Base):
                 *args - variable number of no-keyword args
                 **kwargs - variable number of keyworded args
         """
-        if args != None and len(args) != 0:
-            list_atr = ['id', 'width', 'height', 'x', 'y']
-            for i in range(len(args)):
-                setattr(self, list_atr[i], args[i])
-        else:
-            for key, value in kwargs.items():
-                setattr(self, key, value)
+        if len(args) == 0:
+            for key, val in kwargs.items():
+                self.__setattr__(key, val)
+            return
+
+        try:
+            self.id = args[0]
+            self.width = args[1]
+            self.height = args[2]
+            self.x = args[3]
+            self.y = args[4]
+        except IndexError:
+            pass
 
     def to_dictionary(self):
         """returns the dictionary representation of a Rectangle"""
