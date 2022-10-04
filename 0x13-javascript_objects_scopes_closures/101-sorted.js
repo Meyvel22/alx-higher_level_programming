@@ -5,11 +5,11 @@
 const dict = require('./101-data').dict;
 const currentDict = {};
 
-Object.keys(dict).map(function (key, index) {
+for (const key in dict) {
   if (currentDict[dict[key]] === undefined) {
-    currentDict[dict[key]] = [];
+    currentDict[dict[key]] = [key];
+  } else {
+    currentDict[dict[key]].push(key);
   }
-  currentDict[dict[key]].push(key);
-});
-
+}
 console.log(currentDict);
