@@ -23,7 +23,7 @@ if __name__ == '__main__':
     session = Session()
 
     # extract states with a in them
-    states = session.query(State).filter(State.name.ilike('%a%')).all()
+    states = session.query(State).filter(State.name.like('%a%')).all()
 
     # delete states
     for state in states:
